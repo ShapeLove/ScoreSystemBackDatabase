@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="database-provider"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:service interface="com.shp.service.UserService" ref="userService" registry="N/A"/>
+    <dubbo:service interface="com.shp.service.ScoreService" ref="scoreService" registry="N/A"/>
+    <dubbo:service interface="com.shp.service.RoleService" ref="roleService" registry="N/A"/>
+    <dubbo:service interface="com.shp.service.PermissionService" ref="permissionService" registry="N/A"/>
+    <bean id="userService" class="com.shp.serviceImpl.user.UserServiceImpl"/>
+    <bean id="scoreService" class="com.shp.serviceImpl.score.ScoreServiceImpl"/>
+    <bean id="roleService" class="com.shp.serviceImpl.role.RoleServiceImpl"/>
+    <bean id="permissionService" class="com.shp.serviceImpl.permission.PermissionServiceImpl"/>
+</beans>
